@@ -1,3 +1,3 @@
-it('my first test', () => {
-  
+it("Visit Trello", () => {
+  cy.visit("/");
 });
