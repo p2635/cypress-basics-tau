@@ -7,6 +7,9 @@ describe("Introduction to Cypress", () => {
   // 04 - Cypress Studio
   it("Cypress Studio", () => {
     cy.visit("/");
+    /* ==== Generated with Cypress Studio ==== */
+    cy.get('[data-cy="first-board"]').type("Testing one to three");
+    /* ==== End Cypress Studio ==== */
   });
 
   // 05 - Selectors
