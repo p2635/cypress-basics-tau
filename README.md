@@ -4,7 +4,7 @@ This repository documents my learning on the course [Introduction to Cypress cou
 
 ## Application Under Test
 
-A clone of a popular [Trello app](https://trello.com).
+A clone of the popular [Trello app](https://trello.com).
 
 You can...
 
