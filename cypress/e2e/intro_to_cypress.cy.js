@@ -81,7 +81,7 @@ describe("Introduction to Cypress", () => {
   });
 
   // 08 - Chaining and Retry
-  it.only("get shampoo even if other cards load first", () => {
+  it("get shampoo even if other cards load first", () => {
     // Prereqs - set up two lists: groceries (bread and milk, with due dates),
     // and drugstore (soap and shampoo, with the same due dates as groceries).
     cy.visit("/board/1");
@@ -92,8 +92,6 @@ describe("Introduction to Cypress", () => {
     cy.get('[data-cy="card-detail-title"]').should("have.value", "shampoo");
   });
 
-  // 09 - Plugins
-  it("plugins", () => {
-    cy.visit("/");
-  });
+  // 09 - Plugins - skipping because I do not want to sign up
+  // to Applitools yet.
 });
