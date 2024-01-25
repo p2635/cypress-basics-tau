@@ -1,3 +1,5 @@
+[![Node.js CI](https://github.com/p2635/cypress-basics-tau/actions/workflows/node.js.yml/badge.svg)](https://github.com/p2635/cypress-basics-tau/actions/workflows/node.js.yml)
+
 # Introduction to Cypress - Test Automation University
 
 This repository documents my learning on the course [Introduction to Cypress course on Test Automation university](https://testautomationu.applitools.com/cypress-getting-started/).
