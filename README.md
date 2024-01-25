@@ -13,3 +13,7 @@ You can...
 - Sign up and log in to create private boards.
 
 For more information, please refer to the original repo created by Filip Hric: https://github.com/filiphric/cypress-basics-tau.
+
+## I changed the original repo a bit
+
+1. I tried to create meaningful tests. For example, I deleted a test that only contained `cy.visit("/");`. It doesn't exactly demonstrate a high level of skill.
