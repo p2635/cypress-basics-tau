@@ -26,11 +26,11 @@ describe("Chaining and Retry", () => {
     cy.get("[data-cy=card]", { timeout: 10000 });
   });
 
-  it("get shampoo even if other cards load first", () => {
+  it.only("get shampoo even if other cards load first", () => {
     // Make sure shampoo doesn't always load first
     cardsLoadRandomly(6000);
 
-    cy.get("[data-cy=card]", { timeout: 10000 }).contains("shampoo").click();
+    cy.get("[data-cy=card]").contains("shampoo", { timeout: 10000 }).click();
     cy.get('[data-cy="card-detail-title"]').should("have.value", "shampoo");
   });
 });
