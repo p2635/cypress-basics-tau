@@ -8,6 +8,7 @@ describe("Interactions", () => {
   beforeEach("Visit the board", () => {
     cy.visit("/board/1");
   });
+
   it("creates a new list and a new card by pressing enter", () => {
     cy.get('[data-cy="add-list-input"]').type("New List{enter}");
     cy.get('[data-cy="new-card"]').click();
