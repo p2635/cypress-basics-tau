@@ -57,16 +57,17 @@ describe("Introduction to Cypress", () => {
 
   // Chapter 07 - Assertions
   // Create a list called 'groceries', create a card and complete it. Check the due date is green.
-  it("complete a task and check due date shows as completed", () => {
+  it.only("complete a task and check due date shows as completed", () => {
     cy.visit("/board/1");
     cy.get('[data-cy="add-list-input"]').type("groceries{enter}");
     cy.get('[data-cy="new-card"]').click();
     cy.get('[data-cy="new-card-input"]').type("bread{enter}");
     cy.get('[data-cy="due-date"]').should("not.have.class", "completed");
 
-    // Works but not very readable and not clear it's a checkbox
-    cy.contains("bread").prev("label").children().check();
-    cy.contains("bread").prev("label").children().should("be.checked");
+    cy.contains(".card", "bread").find('[type="checkbox"]').check();
+    cy.contains(".card", "bread")
+      .find('[type="checkbox"]')
+      .should("be.checked");
 
     cy.get('[data-cy="due-date"]').should("have.class", "completed");
   });
