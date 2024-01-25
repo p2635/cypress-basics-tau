@@ -1,12 +1,12 @@
 import { cardsLoadSlowly, cardsLoadRandomly } from "../../evilCode";
 
 describe("Introduction to Cypress", () => {
-  // 03 - First Command
+  // Chapter 03 - First Command
   it("Visit Trello", () => {
     cy.visit("/");
   });
 
-  // 04 - Cypress Studio
+  // Chapter 04 - Cypress Studio
   it("Cypress Studio", () => {
     cy.visit("/");
     /* ==== Generated with Cypress Studio ==== */
@@ -14,7 +14,7 @@ describe("Introduction to Cypress", () => {
     /* ==== End Cypress Studio ==== */
   });
 
-  // 05 - Selectors
+  // Chapter 05 - Selectors
   // Prerequisite - The board must be already created.
   it("Selectors", () => {
     cy.visit("/");
@@ -24,7 +24,7 @@ describe("Introduction to Cypress", () => {
     cy.get("[data-cy=board-item]").first();
   });
 
-  // 06 - Interactions
+  // Chapter 06 - Interactions
   it("creates a new list and a new card by pressing enter", () => {
     cy.visit("/board/1");
     cy.get('[data-cy="add-list-input"]').type("New List{enter}");
@@ -32,7 +32,7 @@ describe("Introduction to Cypress", () => {
     cy.get('[data-cy="new-card-input"]').type("hello{enter}");
   });
 
-  // 07 - Assertions
+  // Chapter 07 - Assertions
   // Check bread card is visible after creating the card
   it("create bread card and check is visible", () => {
     cy.visit("/board/1");
@@ -43,7 +43,7 @@ describe("Introduction to Cypress", () => {
     cy.contains("bread").should("be.visible");
   });
 
-  // 07 - Assertions
+  // Chapter 07 - Assertions
   // Create two cards and check there are in fact two cards created
   it("create two cards and check there are in fact two cards created", () => {
     cy.visit("/board/1");
@@ -55,7 +55,7 @@ describe("Introduction to Cypress", () => {
     cy.get('[data-cy="card"]').should("have.length", 2);
   });
 
-  // 07 - Assertions
+  // Chapter 07 - Assertions
   // Create a list called 'groceries', create a card and complete it. Check the due date is green.
   it("complete a task and check due date shows as completed", () => {
     cy.visit("/board/1");
@@ -71,7 +71,7 @@ describe("Introduction to Cypress", () => {
     cy.get('[data-cy="due-date"]').should("have.class", "completed");
   });
 
-  // 08 - Chaining and Retry
+  // Chapter 08 - Chaining and Retry
   it("get Cypress to check for at least 10s max", () => {
     // Prereqs - set up two lists: groceries (bread and milk, with due dates),
     // and drugstore (soap and shampoo, with the same due dates as groceries).
@@ -80,7 +80,7 @@ describe("Introduction to Cypress", () => {
     cy.get("[data-cy=card]", { timeout: 10000 });
   });
 
-  // 08 - Chaining and Retry
+  // Chapter 08 - Chaining and Retry
   it("get shampoo even if other cards load first", () => {
     // Prereqs - set up two lists: groceries (bread and milk, with due dates),
     // and drugstore (soap and shampoo, with the same due dates as groceries).
