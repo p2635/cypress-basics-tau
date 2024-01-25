@@ -62,7 +62,9 @@ describe("Introduction to Cypress", () => {
     cy.get('[data-cy="new-card-input"]').type("bread{enter}");
     cy.get('[data-cy="due-date"]').should("not.have.class", "completed");
 
+    // Works but not very readable and not clear it's a checkbox
     cy.contains("bread").prev("label").children().check();
+    cy.contains("bread").prev("label").children().should("be.checked");
 
     cy.get('[data-cy="due-date"]').should("have.class", "completed");
   });
