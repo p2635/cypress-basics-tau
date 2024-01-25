@@ -1,19 +1,24 @@
 // Introduction to Cypress, Chapter 7 - Assertions
 describe("Assertions", () => {
-  // Check bread card is visible after creating the card
-  it("create bread card and check is visible", () => {
-    cy.visit("/board/1");
+  before("Reset the data and create the board", () => {
+    cy.request("POST", "/api/reset");
+    cy.request("POST", "/api/boards", { name: "new board" });
+    cy.request("POST", "/api/lists", { boardId: 1, name: "groceries" });
+  });
 
+  beforeEach("Clear cards then visit board", () => {
+    cy.request("DELETE", "/api/cards");
+    cy.visit("/board/1");
+  });
+
+  it("create bread card and check is visible", () => {
     cy.get('[data-cy="new-card"]').click();
     cy.get('[data-cy="new-card-input"]').type("bread{enter}");
 
     cy.contains("bread").should("be.visible");
   });
 
-  // Create two cards and check there are in fact two cards created
   it("create two cards and check there are in fact two cards created", () => {
-    cy.visit("/board/1");
-
     cy.get('[data-cy="new-card"]').click();
     cy.get('[data-cy="new-card-input"]').type("bread{enter}");
     cy.get('[data-cy="new-card-input"]').type("milk{enter}");
@@ -21,10 +26,7 @@ describe("Assertions", () => {
     cy.get('[data-cy="card"]').should("have.length", 2);
   });
 
-  // Create a list called 'groceries', create a card and complete it. Check the due date is green.
-  it.only("complete a task and check due date shows as completed", () => {
-    cy.visit("/board/1");
-    cy.get('[data-cy="add-list-input"]').type("groceries{enter}");
+  it("complete a task and check due date shows as completed", () => {
     cy.get('[data-cy="new-card"]').click();
     cy.get('[data-cy="new-card-input"]').type("bread{enter}");
     cy.get('[data-cy="due-date"]').should("not.have.class", "completed");
