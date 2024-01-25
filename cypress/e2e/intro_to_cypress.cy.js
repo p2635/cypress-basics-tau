@@ -1,16 +1,6 @@
 import { cardsLoadSlowly, cardsLoadRandomly } from "../../evilCode";
 
 describe("Introduction to Cypress", () => {
-  // Chapter 05 - Selectors
-  // Prerequisite - The board must be already created.
-  it("Selectors", () => {
-    cy.visit("/");
-    cy.contains(".board", "new board");
-    cy.get(".board");
-    cy.get("#board-1");
-    cy.get("[data-cy=board-item]").first();
-  });
-
   // Chapter 06 - Interactions
   it("creates a new list and a new card by pressing enter", () => {
     cy.visit("/board/1");
