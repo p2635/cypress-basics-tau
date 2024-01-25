@@ -1,19 +1,6 @@
 import { cardsLoadSlowly, cardsLoadRandomly } from "../../evilCode";
 
 describe("Introduction to Cypress", () => {
-  // Chapter 03 - First Command
-  it("Visit Trello", () => {
-    cy.visit("/");
-  });
-
-  // Chapter 04 - Cypress Studio
-  it("Cypress Studio", () => {
-    cy.visit("/");
-    /* ==== Generated with Cypress Studio ==== */
-    cy.get('[data-cy="first-board"]').type("Testing one to three");
-    /* ==== End Cypress Studio ==== */
-  });
-
   // Chapter 05 - Selectors
   // Prerequisite - The board must be already created.
   it("Selectors", () => {
