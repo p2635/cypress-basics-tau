@@ -1,3 +1,5 @@
+import { cardsLoadSlowly, cardsLoadRandomly } from "../../evilCode";
+
 describe("Introduction to Cypress", () => {
   // 03 - First Command
   it("Visit Trello", () => {
@@ -55,7 +57,7 @@ describe("Introduction to Cypress", () => {
 
   // 07 - Assertions
   // Create a list called 'groceries', create a card and complete it. Check the due date is green.
-  it.only("complete a task and check due date shows as completed", () => {
+  it("complete a task and check due date shows as completed", () => {
     cy.visit("/board/1");
     cy.get('[data-cy="add-list-input"]').type("groceries{enter}");
     cy.get('[data-cy="new-card"]').click();
@@ -70,9 +72,24 @@ describe("Introduction to Cypress", () => {
   });
 
   // 08 - Chaining and Retry
-  it("chaining and retrying", () => {
+  it("get Cypress to check for at least 10s max", () => {
+    // Prereqs - set up two lists: groceries (bread and milk, with due dates),
+    // and drugstore (soap and shampoo, with the same due dates as groceries).
     cy.visit("/board/1");
-    cy.contains("[data-cy=card]", "Jun 26 2023");
+    cardsLoadSlowly(6000);
+    cy.get("[data-cy=card]", { timeout: 10000 });
+  });
+
+  // 08 - Chaining and Retry
+  it.only("get shampoo even if other cards load first", () => {
+    // Prereqs - set up two lists: groceries (bread and milk, with due dates),
+    // and drugstore (soap and shampoo, with the same due dates as groceries).
+    cy.visit("/board/1");
+    // Make sure shampoo doesn't always show
+    cardsLoadRandomly(6000);
+
+    cy.get("[data-cy=card]", { timeout: 10000 }).contains("shampoo").click();
+    cy.get('[data-cy="card-detail-title"]').should("have.value", "shampoo");
   });
 
   // 09 - Plugins
