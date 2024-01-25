@@ -2,19 +2,32 @@
 import { cardsLoadSlowly, cardsLoadRandomly } from "../../evilCode";
 
 describe("Chaining and Retry", () => {
-  it("get Cypress to check for at least 10s max", () => {
-    // Prereqs - set up two lists: groceries (bread and milk, with due dates),
-    // and drugstore (soap and shampoo, with the same due dates as groceries).
+  before("Reset the data and create the test data", () => {
+    cy.request("POST", "/api/reset");
+    cy.request("POST", "/api/boards", { name: "new board" });
+    cy.request("POST", "/api/lists", { boardId: 1, name: "groceries" });
+    cy.request("POST", "/api/lists", { boardId: 1, name: "drugstore" });
+    cy.request("POST", "/api/cards", { boardId: 1, listId: 1, name: "bread" });
+    cy.request("POST", "/api/cards", { boardId: 1, listId: 1, name: "milk" });
+    cy.request("POST", "/api/cards", { boardId: 1, listId: 2, name: "soap" });
+    cy.request("POST", "/api/cards", {
+      boardId: 1,
+      listId: 2,
+      name: "shampoo",
+    });
+  });
+
+  beforeEach("Visit the board", () => {
     cy.visit("/board/1");
+  });
+
+  it("get Cypress to check for at least 10s max", () => {
     cardsLoadSlowly(6000);
     cy.get("[data-cy=card]", { timeout: 10000 });
   });
 
   it("get shampoo even if other cards load first", () => {
-    // Prereqs - set up two lists: groceries (bread and milk, with due dates),
-    // and drugstore (soap and shampoo, with the same due dates as groceries).
-    cy.visit("/board/1");
-    // Make sure shampoo doesn't always show
+    // Make sure shampoo doesn't always load first
     cardsLoadRandomly(6000);
 
     cy.get("[data-cy=card]", { timeout: 10000 }).contains("shampoo").click();
