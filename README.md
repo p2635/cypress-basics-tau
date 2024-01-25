@@ -14,6 +14,19 @@ You can...
 
 For more information, please refer to the original repo created by Filip Hric: https://github.com/filiphric/cypress-basics-tau.
 
-## I changed the original repo a bit
+## Course Content
 
-1. I tried to create meaningful tests. For example, I deleted a test that only contained `cy.visit("/");`. It doesn't exactly demonstrate a high level of skill.
+- Chapter 1 - What is Cypress
+- Chapter 2 - Installation and Project Walkthrough
+- Chapter 3 - First command
+- Chapter 4 - Cypress Studio
+- Chapter 5 - Selectors
+- Chapter 6 - Interactions
+- Chapter 7 - Assertions
+- Chapter 8 - Chaining and Retrying
+- Chapter 9 - Plugins
+- Chapter 10 - Run mode
+
+## Goal
+
+This place is a demonstration of my skills based on what I learned. My aim was not to create a replica of the original repo. I only included meaningful tests here, removing anything that looked like drills or exercises. For example, I deleted the one that only contained `cy.visit("/");`.
