@@ -24,7 +24,7 @@ For more information, please refer to the original repo created by Filip Hric: h
 - Chapter 6 - Interactions
 - Chapter 7 - Assertions
 - Chapter 8 - Chaining and Retrying
-- Chapter 9 - Plugins
+- Chapter 9 - Plugins (I skipped this one, I didn't want to sign up to Applitools lol)
 - Chapter 10 - Run mode
 
 ## Goal
