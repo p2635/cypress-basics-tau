@@ -1,5 +1,5 @@
 // Introduction to Cypress, Chapter 5 - Selectors
-describe("Selectors", () => {
+describe("Board tests", () => {
   before("Reset the data and create the boards", () => {
     cy.request("POST", "/api/reset");
     cy.request("POST", "/api/boards", { name: "new board" });
