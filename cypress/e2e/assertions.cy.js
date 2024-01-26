@@ -1,12 +1,12 @@
 // Introduction to Cypress, Chapter 7 - Assertions
 describe("Assertions", () => {
-  before("Reset the data and create the board", () => {
+  before("reset the data and create the board", () => {
     cy.request("POST", "/api/reset");
     cy.request("POST", "/api/boards", { name: "new board" });
     cy.request("POST", "/api/lists", { boardId: 1, name: "groceries" });
   });
 
-  beforeEach("Clear cards then visit board", () => {
+  beforeEach("clear cards then visit board", () => {
     cy.request("DELETE", "/api/cards");
     cy.visit("/board/1");
   });
