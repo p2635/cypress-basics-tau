@@ -23,15 +23,15 @@ For more information, please refer to the original repo created by Filip Hric: h
 
 ## What I learned
 
-### Introduction to Cypress
+### Introduction to Cypress Course
 
-- Chapter 1 - What is Cypress
-- Chapter 2 - Installation and Project Walkthrough
-- Chapter 3 - First command
-- Chapter 4 - Cypress Studio
-- Chapter 5 - Selectors
-- Chapter 6 - Interactions
-- Chapter 7 - Assertions
-- Chapter 8 - Chaining and Retrying
-- Chapter 9 - Plugins (I skipped this one, I didn't want to sign up to Applitools lol)
-- Chapter 10 - Run mode
+- Cypress is a testing tool that does not work like Selenium (which drives the web browser). The way it tests is more like an app automation. It runs two iframes (one is Cypress and the one inside that is the app under test)
+- Initialise an npm package and install cypress as a dev dependency
+- Understand the general folder structure of cypress
+- How to use selectors
+- Write simple assertions
+- Access Cypress project settings in the GUI and enable an experimental feature called 'Cypress Studio'
+- Learn how chaining works with parent, child and hybrid commands
+- The difference between query (like assertions) and action commands
+- Query commands retry but non-queries do not
+- Running Cypress in headed and headless mode.
