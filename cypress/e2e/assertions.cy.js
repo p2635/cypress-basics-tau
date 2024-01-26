@@ -26,7 +26,7 @@ describe("Assertions", () => {
     cy.get('[data-cy="card"]').should("have.length", 2);
   });
 
-  it("complete a task and check due date shows as completed", () => {
+  it("complete a card and check due date shows as completed", () => {
     cy.get('[data-cy="new-card"]').click();
     cy.get('[data-cy="new-card-input"]').type("bread{enter}");
     cy.get('[data-cy="due-date"]').should("not.have.class", "completed");
