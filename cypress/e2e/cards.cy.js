@@ -1,5 +1,5 @@
 // Introduction to Cypress, Chapter 7 - Assertions
-describe("Card actions", () => {
+describe("Cards", () => {
   before("reset the data and create the board", () => {
     cy.request("POST", "/api/reset");
     cy.request("POST", "/api/boards", { name: "new board" });
