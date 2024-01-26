@@ -1,7 +1,7 @@
 // Introduction to Cypress, Chapter 8 - Chaining and Retry
 import { cardsLoadSlowly, cardsLoadRandomly } from "../../evilCode";
 
-describe("Chaining and Retry", () => {
+describe("Loading Delays", () => {
   before("Reset the data and create the test data", () => {
     cy.request("POST", "/api/reset");
     cy.request("POST", "/api/boards", { name: "new board" });
