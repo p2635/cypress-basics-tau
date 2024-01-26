@@ -16,7 +16,7 @@ You can...
 
 For more information, please refer to the original repo created by Filip Hric: https://github.com/filiphric/cypress-basics-tau.
 
-## Course Content
+## What I learned
 
 - Chapter 1 - What is Cypress
 - Chapter 2 - Installation and Project Walkthrough
