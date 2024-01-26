@@ -1,4 +1,4 @@
-[![Cypress CI tests](https://github.com/p2635/cypress-basics-tau/actions/workflows/node.js.yml/badge.svg)](https://github.com/p2635/cypress-basics-tau/actions/workflows/node.js.yml)
+[![Cypress CI tests](https://github.com/p2635/cypress-basics-tau/actions/workflows/node.js.yml/badge.svg?event=push)](https://github.com/p2635/cypress-basics-tau/actions/workflows/node.js.yml)
 
 # What is this repo?
 
